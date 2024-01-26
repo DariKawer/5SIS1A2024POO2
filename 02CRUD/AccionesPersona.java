@@ -44,6 +44,14 @@ public class AccionesPersona {
     // Eliminar persona
     public void eliminarPersona(Persona eliminar) {
         listaPersonas.remove(eliminar);
+        acomodarID();
+    }
+
+    // Acomodar bien los ids
+    public void acomodarID() {
+        for (int i = 0; i < listaPersonas.size(); i++) {
+            listaPersonas.get(i).setId(i + 1);
+        }
     }
 
     // Editar datos de persona
@@ -60,6 +68,8 @@ public class AccionesPersona {
     // Mostrar tabla
     public void mostrarRegistro() {
         ArrayList<Persona> personas = mostrarPersonas();
+        System.out.println("Registro:");
+        System.out.println("===================================");
         for (Persona p : personas) {
             System.out.println("ID: " + p.getId() + ", Nombre: " + p.getNombre() + ", Edad: " + p.getEdad());
         }

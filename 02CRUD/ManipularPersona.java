@@ -5,88 +5,111 @@ public class ManipularPersona {
     public void menu() {
         Scanner entrada = new Scanner(System.in);
         int opcion, edad;
-        String nombre;
+        String nombre, op1;
 
-        AccionesPersona p1 = new AccionesPersona();
+        AccionesPersona gestionar = new AccionesPersona();
 
-        Persona persona1 = new Persona(01, "Jose", 50);
-        p1.agregarPersona(persona1);
-        Persona persona2 = new Persona(02, "Maria", 25);
-        p1.agregarPersona(persona2);
-        Persona persona3 = new Persona(03, "Javier", 34);
-        p1.agregarPersona(persona3);
-        Persona persona4 = new Persona(04, "Pedro", 18);
-        p1.agregarPersona(persona4);
-        Persona persona5 = new Persona(05, "Juan", 31);
-        p1.agregarPersona(persona5);
-
+        gestionar.agregarPersona(new Persona("Jose", 50));
+        gestionar.agregarPersona(new Persona("Maria", 25));
+        gestionar.agregarPersona(new Persona("Javier", 34));
+        gestionar.agregarPersona(new Persona("Pedro", 18));
+        gestionar.agregarPersona(new Persona("Juan", 31));
 
         do {
-            System.out.println("Bienvenido a este programa");
-            System.out.println("Elija una opcion valida");
-            System.out.println("1.- Mostrar todos los registros de personas");
-            System.out.println("2.- Registrar un nuevo objeto");
-            System.out.println("3.- Buscar objeto");
-            System.out.println("4.- Editar ese objeto");
-            System.out.println("5.- Borrar el objeto");
+            System.out.println("===================================");
+            System.out.println("Elija una opcion:");
+            System.out.println("1.- Mostrar registro de personas");
+            System.out.println("2.- Registrar una nueva persona");
+            System.out.println("3.- Buscar persona");
+            System.out.println("4.- Editar datos de la persona");
+            System.out.println("5.- Borrar una persona");
             System.out.println("6.- Salir");
             opcion = entrada.nextInt();
+            System.out.println("===================================");
 
             switch (opcion) {
                 case 1:
-                    p1.mostrarRegistro();
+                    gestionar.mostrarRegistro();
                     break;
+
                 case 2:
                     entrada.nextLine();
-                    System.out.println("Ingresa nombre");
+                    System.out.println("Ingrese el nombre:");
                     nombre = entrada.nextLine();
-                    System.out.println("Ingresa edad");
+                    System.out.println("Ingrese la edad:");
                     edad = entrada.nextInt();
-                
-                    p1.agregarPersona(new Persona(06, nombre, edad));
+
+                    gestionar.agregarPersona(new Persona(nombre, edad));
+                    System.out.println("===================================");
+                    System.out.println("Registrado correctamente!");
                     break;
+
                 case 3:
-                    System.out.println("Ingresa el ID de la persona a buscar");
-                    int busqueda = entrada.nextInt();
-                    p1.buscarPersona(busqueda);
+                    System.out.println("Ingresa el ID de la persona a buscar:");
+                    int busquedaID = entrada.nextInt();
+                    System.out.println("===================================");
+
+                    System.out.println("Resultado de busqueda:");
+                    gestionar.buscarPersona(busquedaID);
                     break;
+
                 case 4:
-                    System.out.println("Ingresa el ID de la persona a editar");
-                    int editado = entrada.nextInt();
-                    Persona editarPersona = p1.buscarPersona(editado);
+                    System.out.println("Ingresa el ID de la persona a editar:");
+                    int editadoID = entrada.nextInt();
+
+                    System.out.println("===================================");
+                    System.out.println("Editando a:");
+                    Persona editarPersona = gestionar.buscarPersona(editadoID);
+                    System.out.println("===================================");
+
                     if(editarPersona != null) {
-                        System.out.println("Ingresa nombre a editar");
+                        System.out.println("Ingresa nuevo nombre:");
                         entrada.nextLine();
                         nombre = entrada.nextLine();
-                        System.out.println("Ingresa edad a editar");
+                        System.out.println("Ingresa nueva edad:");
                         edad = entrada.nextInt();
 
                         editarPersona.setNombre(nombre);
                         editarPersona.setEdad(edad);
-                        p1.editarPersona(editarPersona);
+
+                        System.out.println("===================================");
+                        System.out.println("Resultado de la editación:");
+                        gestionar.editarPersona(editarPersona);
+                        System.out.println("===================================");
                         System.out.println("Editado correctamente");
                     }
                     break;
+
                 case 5:
-                    System.out.println("Ingresa el ID de la persona a eliminar");
-                    int eliminado = entrada.nextInt();
-                    Persona eliminarPersona = p1.buscarPersona(eliminado);
-                    if(eliminarPersona != null) {
-                    p1.eliminarPersona(eliminarPersona);
-                    System.out.println("Elimnado correctamente");
+                    System.out.println("Ingresa el ID de la persona a eliminar:");
+                    int eliminadoID = entrada.nextInt();
+
+                    System.out.println("===================================");
+                    System.out.println("Eliminando a:");
+                    Persona eliminarPers = gestionar.buscarPersona(eliminadoID);
+                    System.out.println("===================================");
+
+                    if (eliminarPers != null) {
+                        gestionar.eliminarPersona(eliminarPers);
+                        System.out.println("Elimnado correctamente");
                     }
                     break;
+
                 case 6:
-                    System.out.println("chao viejo");
+                    System.out.println("Programado finalizado! chao viejo");
                     break;
+
                 default:
                     System.out.println("Opcion no valida intenta de nuevo");
+                    break;
             }
-        } while (opcion != 6);
-    }
 
-    public static void main(String[] args) {
-        ManipularPersona wey = new ManipularPersona();
-        wey.menu();
+            entrada.nextLine();
+            System.out.println("===================================");
+            System.out.println("Queres continuar? (Y/N)");
+            op1 = entrada.nextLine();
+        } while (opcion != 6 && !(op1.equals("N") || op1.equals("n")));
+
+        entrada.close();
     }
 }

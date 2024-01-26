@@ -7,20 +7,18 @@
 */
 public class Persona {
 
-    private int id;
+    private static int contId = 1;
+    private int id, edad;
     private String nombre;
-    private int edad;
 
     // constructor
     public Persona() {
-
     }
 
-    public Persona(int id, String nombre, int edad) {
-        this.id = id;
+    public Persona(String nombre, int edad) {
+        this.id = contId++;
         this.nombre = nombre;
         this.edad = edad;
-
     }
 
     public int getId() {
