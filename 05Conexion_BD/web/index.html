@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+
+        <title>Mi primera Conexion</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div {
+                display: flex;
+                justify-content: space-around;
+            }
+        
+            form {
+                flex: 1;
+                text-align: center;
+                border: 1px dashed black;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <h1><a href="Consultar">Consultar Lista de Alumnos</a></h1>  
+        <br>
+        <br>
+            
+        <div>
+            <form name="formulario" 
+                  action="Registro"
+                  method="post"    >
+                <h1>REGISTRAR</h1>
+                <label>Nombre: </label>
+                <br>
+                <input type="text" 
+                       name="nombre" >
+                <br>
+                <label>Apellido Paterno: </label>
+                <br>
+                <input type="text" 
+                       name="appat" >
+                <br>
+                <label>Apellido materno: </label>
+                <br>
+                <input type="text" 
+                       name="apmat" >
+                <br>
+                <label>Edad: </label>
+                <br>
+                <input type="text" 
+                       name="edad" >
+                <br>
+                <br>
+                <input type="submit" name="enviar"
+                       value="Registrar Alumno">
+                <input type="reset" name="borrar"
+                       value="Borrar Datos">
+            </form>
+               
+            <br>
+            <form name="formulario1" 
+                  action="Actualizar"
+                  method="post"    >
+                <h1>ACTUALIZAR</h1>
+                <label>Ingresa la Boleta del estudiante que 
+                    deseas actualizar: </label>
+                <br>
+                <input type="text" 
+                       name="idAlumno" >
+                <br>
+                <label>Nombre: </label>
+                <br>
+                <input type="text" 
+                       name="nombre" >
+                <br>
+                <label>Apellido Paterno: </label>
+                <br>
+                <input type="text" 
+                       name="appat" >
+                <br>
+                <label>Apellido materno: </label>
+                <br>
+                <input type="text" 
+                       name="apmat" >
+                <br>
+                <label>Edad: </label>
+                <br>
+                <input type="text" 
+                       name="edad" >
+                <br>
+                <br>
+                <input type="submit" name="enviar"
+                       value="Actualizar alumno">
+                <input type="reset" name="borrar"
+                       value="Borrar Datos">
+                <br>
+                <br>
+            </form>
+            
+            <br>
+            <form method="get" name="delete" action="Eliminar">
+                <h1>ELIMINAR</h1>
+                <label>Ingresa la Boleta del estudiante que 
+                    deseas dar de baja</label>
+                <br>
+                <input type="text" name="boletaeliminada" >
+                <br>
+                <br>
+                <input type="submit" value="Dar de Baja">
+            </form>
+        </div>
+    </body>
+</html>
