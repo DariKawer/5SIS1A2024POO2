@@ -1,60 +1,79 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>Mi primera Conexion</title>
+        <title>Examen - Segundo Parcial</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body {
+                background-size: cover;
+            }
+            div {
+                display: flex;
+                justify-content: space-around;
+            }
+            form {
+                flex: 1;
+                text-align: center;
+                border: 1px dashed black;
+                min-height: 100vh;
+            }
+        </style>
     </head>
     <body>
         <div>
-            <form name="formulario" 
-                  action="Registro"
-                  method="post"    >
-                <label>Nombre: </label>
+            <form name="registro" action="guardarUsuario" method="post">
+                <h1>Registrar</h1>
+                <hr><br><br><br>
+                <label>Correo: </label>
                 <br>
-                <input type="text" 
-                       name="nombre" >
+                <input type="text" name="email">
+                <br><br>
+                <label>Contraseña: </label>
                 <br>
-                <label>Apellido Paterno: </label>
+                <input type="password" name="pass">
+                <br><br>
+                <label>Confirmar contraseña: </label>
                 <br>
-                <input type="text" 
-                       name="appat" >
-                <br>
-                <label>Apellido materno: </label>
-                <br>
-                <input type="text" 
-                       name="apmat" >
-                <br>
-                <label>Edad: </label>
-                <br>
-                <input type="text" 
-                       name="edad" >
-                <br>
-                <input type="submit" name="enviar"
-                       value="Registrar Alumno">
-                <input type="reset" name="borrar"
-                       value="Borrar Datos">
+                <input type="password" name="pass_confirm">
+                <br><br><br>
+                <input type="submit" name="enviar" value="Registrar">
+                <input type="reset" name="borrar" value="Borrar Datos">
             </form>
-            
-            <br>
-            
-            <a href="Consultar" >Consultar Lista</a>
-            
-            <br>
-            <form method="get" name="delete" action="Eliminar"> 
+
+            <form name="inicio" action="iniciarUsuario" method="post">
+                <h1>Inicio Sesión</h1>
+                <hr><br><br><br>
+                <label>Correo: </label>
                 <br>
-                <label>Ingresa la Boleta del estudiante que 
-                    deseas dar de baja</label>
+                <input type="text" name="email">
+                <br><br>
+                <label>Contraseña: </label>
                 <br>
-                <input type="text" name="boletaeliminada" >
-                <br>
-                <input type="submit" value="Dar de Baja">
+                <input type="password" name="pass">
+                <br><br><br>
+                <input type="submit" name="enviar" value="Iniciar">
+                <input type="reset" name="borrar" value="Borrar Datos">
             </form>
         </div>
+        <!--
+            Terminado papu
+            NOTAS:
+            No me conforme con tan poco y decidi añadirle un registro verificando q no se repita correo
+            y las contraseñas no sean iguales, una vez registrado puedo pasar a iniciar seion, este tambien
+            tiene una verificacion para checar que el email existe y la contraseña sea correcta.
+    
+            Si los procesos no se cumplen los llevara al archivo incorrecto.jsp donde habra un h1 modificado
+            desde los procesos donde dan error ya q dicha opcion no se cumpla.
+        
+            Tambien decidi añadirle un poco de css al html, aunque ando viendo bien como hacerlo para los jsp,
+            y para este html, todo desde un solo css aunq tenga un buen de lineas prefiero eso q tener desordenado
+            en varios archivos.
+        -->
     </body>
 </html>

@@ -1,11 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
     <servlet>
-        <servlet-name>guardarAlumno</servlet-name>
-        <servlet-class>Servlets.guardarAlumno</servlet-class>
+        <servlet-name>actualizarAlumno</servlet-name>
+        <servlet-class>Servlet.actualizarAlumno</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>eliminaralumno</servlet-name>
+        <servlet-class>Servlet.eliminaralumno</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>guardarAlumno</servlet-name>
+        <servlet-class>Servlet.guardarAlumno</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>guardarUsuario</servlet-name>
+        <servlet-class>Servlet.guardarUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>iniciarUsuario</servlet-name>
+        <servlet-class>Servlet.iniciarUsuario</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>actualizarAlumno</servlet-name>
+        <url-pattern>/actualizarAlumno</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminaralumno</servlet-name>
+        <url-pattern>/eliminaralumno</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>guardarAlumno</servlet-name>
         <url-pattern>/guardarAlumno</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>guardarUsuario</servlet-name>
+        <url-pattern>/guardarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>iniciarUsuario</servlet-name>
+        <url-pattern>/iniciarUsuario</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
 </web-app>
